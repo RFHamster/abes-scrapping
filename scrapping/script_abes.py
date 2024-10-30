@@ -1,4 +1,4 @@
-from llm.llama import create_dict_analise_investimento_ti
+from llm.utils import create_dict_analise_investimento_ti
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime

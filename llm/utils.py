@@ -38,11 +38,11 @@ prompt_template = ChatPromptTemplate.from_messages(
     [('system', system_template), ('user', '{text}')]
 )
 
-chain = prompt_template | model | StrOutputParser()
+chain_dict = prompt_template | model | StrOutputParser()
 
 
 def create_dict_analise_investimento_ti(texto: str):
-    resultado = chain.invoke({'text': texto})
+    resultado = chain_dict.invoke({'text': texto})
     print(resultado)
     dict_obj = json.loads(resultado)
 
