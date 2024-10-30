@@ -10,6 +10,7 @@ not_formatted = [9, 10, 11, 18]
 # 16, 17 não falam do que queremos
 bad_summary = [16, 17]
 
+
 def update_data_abes():
     response = requests.get(url_abes)
     soup = BeautifulSoup(response.text, 'html.parser')

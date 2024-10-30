@@ -46,4 +46,6 @@ def create_dict_analise_investimento_ti(texto: str):
     print(resultado)
     dict_obj = json.loads(resultado)
 
+    dict_obj['origin'] = 'scrap_abes_dados_setor'
+
     return dict_obj
