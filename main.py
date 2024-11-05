@@ -7,6 +7,7 @@ from database_utils.db import (
     get_dict_br_positions,
     get_dict_br_versus_world,
 )
+from services.abes_service import format_pizza_br_x_la
 
 app = FastAPI()
 
@@ -33,7 +34,8 @@ def get_pizza_br_x_la():
     """
     Get Brazil and Latin America's investment values along the years in the format of Pizza Graph in ChartJS
     """
-    return get_dict_br_versus_la()
+    db_response = get_dict_br_versus_la()
+    return format_pizza_br_x_la(db_response)
 
 
 @app.get('/abes/bars/br_world')
