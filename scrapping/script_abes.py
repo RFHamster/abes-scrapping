@@ -11,9 +11,12 @@ not_formatted = [9, 10, 11, 18]
 bad_summary = [16, 17]
 
 
+def get_text_abes_website():
+    return requests.get(url_abes).text
+
+
 def update_data_abes():
-    response = requests.get(url_abes)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    soup = BeautifulSoup(get_text_abes_website(), 'html.parser')
     estudos = soup.find('div', {'class': 'et_pb_column_4'})
     time_now = datetime.now()
     list_dict = []

@@ -20,4 +20,18 @@ def insert_many_data_abes(many_data):
 
 
 def get_dict_abes_scrapping():
-    return collection.find({'origin': 'scrap_abes_dados_setor'})
+    return list(collection.find({}, {'_id': 0}))
+
+
+def get_dict_br_versus_la():
+    return list(
+        collection.find(
+            {},
+            {
+                '_id': 0,
+                'brazil_movement': 1,
+                'latin_america_investment': 1,
+                'study_year': 1,
+            },
+        )
+    )

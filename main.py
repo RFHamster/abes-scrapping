@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from scrapping.script_abes import update_data_abes
-from database_utils.db import get_dict_abes_scrapping
+from database_utils.db import get_dict_abes_scrapping, get_dict_br_versus_la
 
 app = FastAPI()
 
@@ -18,6 +18,11 @@ def read_root():
 @app.get('/abes/table')
 def get_table_abes_scrapping():
     return get_dict_abes_scrapping()
+
+
+@app.get('/abes/pizza/br_la')
+def get_pizza_br_x_la():
+    return get_dict_br_versus_la()
 
 
 @app.post('/abes/ingest')
