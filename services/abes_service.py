@@ -35,3 +35,60 @@ def format_pizza_br_x_la(dict_data):
         datasets.append(data_dict)
 
     return {'labels': labels, 'datasets': datasets}
+
+
+def format_bars_br_x_world(dict_data):
+    sorted_data = sorted(
+        dict_data, key=lambda x: x['study_year'], reverse=True
+    )
+    labels = []
+    data_br = []
+    data_world = []
+
+    for item in sorted_data:
+        labels.append(item['study_year'])
+
+        data_br.append(convert_to_int(item['brazil_movement']))
+        data_world.append(convert_to_int(item['global_investment']))
+
+    return {
+        'labels': labels,
+        'datasets': [
+            {
+                'label': 'Brasil',
+                'data': data_br,
+                'backgroundColor': 'rgba(0, 148, 64, 0.8)',
+            },
+            {
+                'label': 'World',
+                'data': data_world,
+                'backgroundColor': 'rgba(0, 0, 139, 0.8)',
+            },
+        ],
+    }
+
+
+def format_lines_br_position(dict_data):
+    sorted_data = sorted(
+        dict_data, key=lambda x: x['study_year'], reverse=True
+    )
+    labels = []
+    data = []
+
+    for item in sorted_data:
+        labels.append(item['study_year'])
+
+        data.append(item['brazil_position'])
+
+    return {
+        'labels': labels,
+        'datasets': [
+            {
+                'label': 'Brasil Position Along Years',
+                'data': data,
+                'borderColor': 'rgba(0,0,139, 0.8)',
+                'tension': 0.1,
+                'fill': False,
+            }
+        ],
+    }

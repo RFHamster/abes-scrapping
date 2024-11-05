@@ -26,7 +26,8 @@ def get_dict_abes_scrapping():
 def get_dict_br_positions():
     return list(
         collection_abes.find(
-            {}, {'_id': 0, 'brazil_position': 1, 'study_year': 1}
+            {'brazil_position': {'$ne': 'Not Informed'}},
+            {'_id': 0, 'brazil_position': 1, 'study_year': 1},
         )
     )
 
