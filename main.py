@@ -5,7 +5,7 @@ from database_utils.db import (
     get_dict_abes_scrapping,
     get_dict_br_versus_la,
     get_dict_br_positions,
-    get_dict_br_versus_world
+    get_dict_br_versus_world,
 )
 
 app = FastAPI()
@@ -35,6 +35,7 @@ def get_pizza_br_x_la():
     """
     return get_dict_br_versus_la()
 
+
 @app.get('/abes/bars/br_world')
 def get_bars_br_x_world():
     """
@@ -53,6 +54,9 @@ def get_line_br_position():
 
 @app.post('/abes/ingest')
 def update_abes_data(password_request: PasswordRequest):
+    """
+    Ingest abes webscrapping and data
+    """
     if password_request.password == 's3cr3t':  # Verifique a senha
         update_data_abes()
         return {'message': 'Data updated successfully'}

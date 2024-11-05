@@ -47,6 +47,7 @@ def get_dict_br_versus_la():
         )
     )
 
+
 def get_dict_br_versus_world():
     return list(
         collection_abes.find(
