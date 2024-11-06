@@ -70,7 +70,7 @@ def format_bars_br_x_world(dict_data):
 
 def format_lines_br_position(dict_data):
     sorted_data = sorted(
-        dict_data, key=lambda x: x['study_year'], reverse=True
+        dict_data, key=lambda x: x['study_year'], reverse=False
     )
     labels = []
     data = []
