@@ -11,7 +11,7 @@ from database_utils.db import (
 from services.abes_service import (
     format_pizza_br_x_la,
     format_bars_br_x_world,
-    format_lines_br_position,
+    format_lines_br_position, format_table,
 )
 
 app = FastAPI()
@@ -41,7 +41,7 @@ def get_table_abes_scrapping():
     """
     Get all data from abes scrapping in the formate of HTML Table
     """
-    return get_dict_abes_scrapping()
+    return format_table(get_dict_abes_scrapping())
 
 
 @app.get('/abes/pizza/br_la')

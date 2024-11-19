@@ -10,6 +10,10 @@ def convert_to_int(value):
     else:
         return int(float(value))
 
+def format_table(dict_data):
+    return sorted(
+        dict_data, key=lambda x: x['study_year'], reverse=True
+    )
 
 def format_pizza_br_x_la(dict_data):
     sorted_data = sorted(

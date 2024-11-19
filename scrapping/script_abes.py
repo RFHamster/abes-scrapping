@@ -7,8 +7,6 @@ import database_utils.db as db
 url_abes = 'https://abes.com.br/dados-do-setor/'
 root_str = 'et_pb_toggle_'
 not_formatted = [9, 10, 11, 18]
-# 16, 17 não falam do que queremos
-bad_summary = [16, 17]
 
 
 def get_text_abes_website():
@@ -22,7 +20,7 @@ def update_data_abes():
     list_dict = []
 
     for i in range(6, 25):
-        if i in not_formatted or i in bad_summary:
+        if i in not_formatted:
             continue
 
         string_final = ''
