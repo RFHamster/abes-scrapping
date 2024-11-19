@@ -11,7 +11,8 @@ from database_utils.db import (
 from services.abes_service import (
     format_pizza_br_x_la,
     format_bars_br_x_world,
-    format_lines_br_position, format_table,
+    format_lines_br_position,
+    format_table,
 )
 
 app = FastAPI()
@@ -19,12 +20,11 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=['*'],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=['*'],
+    allow_headers=['*'],
 )
-
 
 
 class PasswordRequest(BaseModel):
